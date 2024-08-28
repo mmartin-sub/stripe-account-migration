@@ -1,2 +1,88 @@
-/node_modules
-/build
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# expo
+.expo/
+dist/
+expo-env.d.ts
+apps/expo/.gitignore
+
+# production
+build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# turbo
+.turbo
+
+yarn.lock
+package-lock.json
+bun.lockb
+
+.idea/
+
+# Local and build overwide env
+.env.development.local
+.env.production.local
+
+# Part of the build process
+/i18n/
+# Local script for debugging
+/local-debug/
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# Local Netlify folder
+.netlify
+reports/
+
+# Netifly
+.netlify/
+apps/nextjs/netlify/
+
+# VS code history
+.history/
+
+export

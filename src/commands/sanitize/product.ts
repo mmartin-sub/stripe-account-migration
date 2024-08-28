@@ -11,6 +11,8 @@ const keysToRemove: Array<keyof Stripe.Product> = [
 ];
 
 export function sanitizeProduct(rawData: Stripe.Product): any {
+
+  console.log('Initial:', rawData);
   // TODO
   const data = removeNull(rawData);
 

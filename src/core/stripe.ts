@@ -1,8 +1,10 @@
 import Stripe from "stripe";
 
+/*
 (() => {
   // check if internal _shouldRetry still exists and has the expected signature
   const StripeResource = Stripe.StripeResource as any;
+
   if (
     !StripeResource.prototype._shouldRetry ||
     typeof StripeResource.prototype._shouldRetry !== "function"
@@ -12,12 +14,15 @@ import Stripe from "stripe";
     );
   }
 
+
   const _shouldRetry: Function = StripeResource.prototype._shouldRetry;
+
   if (_shouldRetry.length !== 4) {
     throw new Error(
       "StripeResource.prototype._shouldRetry does not expect 4 arguments"
     );
   }
+
 
   // overwrite _shouldRetry with a function that returns true if the error is a rate limit error
   StripeResource.prototype._shouldRetry = function (
@@ -50,11 +55,8 @@ import Stripe from "stripe";
     return false;
   };
 })();
+  */
 
 export function createStripeClient(apiKey: string): Stripe {
-  return new Stripe(apiKey, {
-    apiVersion: "2020-08-27",
-    typescript: true,
-    maxNetworkRetries: 5,
-  });
+  return new Stripe(apiKey);
 }

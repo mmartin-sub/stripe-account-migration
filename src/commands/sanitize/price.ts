@@ -4,6 +4,7 @@ import { NonNullableKey, removeNull } from "./common";
 const keysToRemove: Array<keyof Stripe.Price> = [
   "id",
   "unit_amount_decimal",
+  // so we keep:  unit_amount,
   "type",
   "livemode",
   "object",
@@ -15,6 +16,8 @@ export function sanitizePrice(
   newProductId: string
 ): any {
   // TODO
+
+  console.log('Original price:', rawData);
   const data = removeNull(rawData);
 
   keysToRemove.forEach((key) => {
@@ -38,6 +41,8 @@ export function sanitizePrice(
   }
 
   data["product"] = newProductId;
+
+  console.log('Sanitazied price:', data);
 
   return data;
 }

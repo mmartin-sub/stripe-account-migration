@@ -3,6 +3,7 @@ import { mapToCsvString } from "../core/csv";
 import { createStripeClient } from "../core/stripe";
 import { sanitizeProduct } from "./sanitize/product";
 
+const limitStripe = 100;
 export async function copyProducts(
   filePath: string,
   apiKeyOldAccount: string,
@@ -12,7 +13,7 @@ export async function copyProducts(
 
   // https://stripe.com/docs/api/products/list
   await createStripeClient(apiKeyOldAccount)
-    .products.list({ limit: 100 })
+    .products.list({ limit: limitStripe })
     .autoPagingEach(async (oldProduct) => {
       const newProduct = await createStripeClient(
         apiKeyNewAccount
