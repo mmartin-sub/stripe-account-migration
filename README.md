@@ -12,6 +12,7 @@ This fork is implementing the following changes:
 - export is still done as CSV, should be in JSON format
 - not sure one-off/call for price is well supported
 - Subscriptions/pricing are not loading correctly.
+- issue when loading multiple prices/currency for each product. need to review the code as the interface for Stripe.Price and Stripe.PriceCreateParams are not the same.
 
 ## Getting started
 

@@ -30,16 +30,19 @@ export async function copyPrices(
 
       console.log('A1');
       const futurePrice = sanitizePrice(oldPrice, newProductId);
-      if (futurePrice.unit_amount_decimal) {
-      const newPrice = await newAccountStripClient.prices.create(
-        futurePrice
+      console.log('A4');
+      if (futurePrice?.currency_options?.usd?.unit_amount>0) {
+        console.log('A3');
+         const newPrice = await newAccountStripClient.prices.create(
+         futurePrice
       );
-      console.log('A1');
+      console.log('A2');
       keyMap.set(oldPrice.id, newPrice.id);
 
             // update default price
             const oldProduct = await oldAccountStripClient.products.retrieve(oldPrice.product as string);
 
+            console.log('old product: ', oldProduct);
             if (oldProduct.default_price === oldPrice.id) {
               await newAccountStripClient.products.update(
                 newProductId,
